@@ -1,6 +1,6 @@
 # Face Swap 
 
-this project was created to map celebrity's face to a different person between two images using dlib.<br>
+this project is to map celebrity's face to a different person using dlib and opencv.<br><br>
 <img  height = 450; width = 350; src="src/2.jpg"/>
 <img  height = 450; width = 350  src="src/justin_bieber.jpg"/>
 
@@ -13,7 +13,6 @@ this project was created to map celebrity's face to a different person between t
 # Requirement:
 * python3-opencv
 * dlib
-* skimage
 * numpy  
 # Usage:
 ## Extract Facial Landmarks
