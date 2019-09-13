@@ -3,7 +3,11 @@
 import sys
 import numpy as np
 import cv2
-
+import argparse 
+ap = argparse.ArgumentParser(description='Face Mapping')
+ap.add_argument("--input1",help="path to your picture")
+ap.add_argument("--input2",help="path to celebrity picture")
+args =ap.parse_args()
 # Read points from text file
 def readPoints(path) :
     # Create an array of points.
@@ -133,8 +137,8 @@ if __name__ == '__main__' :
         sys.exit(1)
 
     # Read images
-    filename1 = '1.jpg'
-    filename2 = '2.jpg'
+    filename1 = args.input2
+    filename2 = args.input1
     
     img1 = cv2.imread(filename1);
     img2 = cv2.imread(filename2);
@@ -194,6 +198,7 @@ if __name__ == '__main__' :
     # Clone seamlessly.
     output = cv2.seamlessClone(np.uint8(img1Warped), img2, mask, center, cv2.NORMAL_CLONE)
     
-    cv2.imwrite("ok.jpg", output)
+    cv2.imshow("result.jpg",cv2.resize(output,(300,300)))
+    cv2.imwrite("result.jpg", output)
     cv2.waitKey(0)
         
